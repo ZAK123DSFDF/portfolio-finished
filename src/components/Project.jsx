@@ -30,7 +30,7 @@ const Project = () => {
     },
     {
       img: project4,
-      name: "Navigation",
+      name: "Admin Dashboard",
       github_link: "https://github.com",
       live_link: "www.google.com",
     },
