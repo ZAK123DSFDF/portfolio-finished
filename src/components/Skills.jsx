@@ -17,7 +17,7 @@ const Skills = () => {
           {skills?.map((skill, i) => (
             <li key={i}>
               <div className="text-5xl flex justify-center">{skill.icon}</div>
-              <div className="text-3xl">{skill.level}</div>
+              <div className="text-2xl">{skill.level}</div>
             </li>
           ))}
         </ul>
