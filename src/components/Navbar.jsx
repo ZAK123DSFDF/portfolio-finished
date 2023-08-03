@@ -6,59 +6,51 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      const nav = document.querySelector("nav");
       window.scrollY > 0 ? setSticky(true) : setSticky(false);
     });
   });
   return (
     <nav
-      className={`fixed w-full left-0 top-0 z-[999] ${
+      className={`fixed w-full z-[999] justify-between flex  ${
         sticky ? "bg-white/60 text-gray-900" : "text-white"
       }`}
     >
-      <div className="flex items-center justify-between">
-        <div className="text-4xl font-bold mx-7">
-          <h4>VISUALS P</h4>
-        </div>
-        <div
-          className={`${
-            sticky ? "md:bg-white/0" : "bg-white"
-          } text-gray-900 md:block hidden px-7 py-2 font-medium rounded-bl-full`}
-        >
-          <ul className="flex items-center gap-1 py-2 text-lg">
-            {menuLinks?.map((menu, i) => (
-              <li key={i} className="px-6 hover:text-cyan-600">
-                <a href={menu?.link}>{menu?.name}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div
-          onClick={() => setOpen(!open)}
-          className={`z-[999] ${
-            open ? "text-gray-900" : "text-gray-100"
-          } text-3xl md:hidden m-5`}
-        >
-          <BiMenu />
-        </div>
-        <div
-          className={`md:hidden text-gray-900 absolute w-2/3 h-screen px-7 py-2 font-medium bg-white top-0 duration-300 ${
-            open ? "right-0" : "right-[-100%]"
-          }`}
-        >
-          <ul className="flex flex-col justify-center h-full gap-10 py-2 text-lg">
-            {menuLinks?.map((menu, i) => (
-              <li
-                key={i}
-                onClick={() => setOpen(false)}
-                className="px-6 hover:text-cyan-600"
-              >
-                <a href={menu?.link}>{menu?.name}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <h4 className="text-xl font-bold mx-7 my-3">VISUALS</h4>
+
+      <ul
+        className={`${
+          sticky ? "md:bg-white/0" : "bg-white"
+        } text-gray-900 hidden px-10 font-medium rounded-bl-full items-center md:flex gap-16 py-5 text-lg`}
+      >
+        {menuLinks?.map((menu, i) => (
+          <li key={i} className="hover:text-cyan-600">
+            <a href={menu?.link}>{menu?.name}</a>
+          </li>
+        ))}
+      </ul>
+
+      <BiMenu
+        onClick={() => setOpen(!open)}
+        className={`z-[999] ${
+          open ? "text-gray-900" : "text-gray-100"
+        } text-3xl md:hidden m-5`}
+      />
+
+      <ul
+        className={` flex flex-col justify-center gap-10 items-center text-lg md:hidden text-gray-900 absolute w-2/3 h-screen px-7 font-medium bg-white top-0 duration-300 ${
+          open ? "right-0" : "right-[-999px]"
+        }`}
+      >
+        {menuLinks?.map((menu, i) => (
+          <li
+            key={i}
+            onClick={() => setOpen(false)}
+            className="hover:text-cyan-600"
+          >
+            <a href={menu?.link}>{menu?.name}</a>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };

@@ -6,13 +6,14 @@ const About = () => {
   ];
   return (
     <section id="about" className="py-10 text-white">
-      <div className="text-center mt-8">
-        <h3 className="text-4xl font-semibold">
-          About <span className="text-cyan-600">Me</span>
-        </h3>
-        <p className="text-gray-400 my-3 text-lg">My introduction</p>
+      <div className=" text-4xl font-semibold mt-8 flex justify-center gap-2">
+        <h3>About</h3>
+        <h3 className="text-cyan-600">Me</h3>
       </div>
-      <div className="flex flex-col items-center md:gap-6 gap-12 p-2 max-w-6xl mx-auto text-gray-300 my-3">
+      <p className="text-gray-400 text-center font-semibold ">
+        My introduction
+      </p>
+      <div className="flex flex-col items-center md:gap-6 gap-12 max-w-6xl mx-auto text-gray-300 mt-5">
         <p className="text-justify leading-7 w-11/12 mx-auto ">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur
           assumenda voluptatibus ipsam ducimus? Accusantium saepe iusto quo
@@ -25,14 +26,19 @@ const About = () => {
           doloribus debitis amet itaque eligendi mollitia quam asperiores sint
           ipsa blanditiis, odit ex atque. Veniam fuga vero alias.
         </p>
-        <ul className="flex mt-10 items-center justify-center md:gap-48 gap-6">
+        <ul className=" mt-10 flex items-center justify-center md:gap-48 gap-6">
           {Info?.map((content, i) => (
-            <li key={i}>
-              <h3 className="md:text-4xl text-2xl font-semibold text-white">
-                {content.count} <span className="text-cyan-600">+</span>
-                {""}
-              </h3>
-              <span className="md:text-base text-xs">{content.text}</span>
+            <li key={i} className="flex md:flex-row md:gap-2 ">
+              <div className="flex-col">
+                <div className="flex">
+                  <h3 className="md:text-4xl text-2xl font-semibold text-white">
+                    {content.count}
+                  </h3>
+                  <h3 className="text-cyan-600 font-bold text-2xl">+</h3>
+                </div>
+
+                <h3 className="md:text-base text-xs">{content.text}</h3>
+              </div>
             </li>
           ))}
         </ul>
